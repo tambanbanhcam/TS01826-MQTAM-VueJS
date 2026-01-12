@@ -8,14 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .list-group-item i {
-            margin-right: 8px;
-        }
-    </style>
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -34,31 +33,30 @@
 
             <!-- Navigation Menu -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Menu bên trái -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-newspaper"></i> Bài viết
+                            <i class="bi bi-list"></i> Bài viết
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-play-circle"></i> Video
+                            <i class="bi bi-film"></i> Video
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-book"></i> Giới thiệu
+                            <i class="bi bi-info-circle"></i> Giới thiệu
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="bi bi-calendar-event"></i> Sự kiện
+                            <i class="bi bi-calendar3"></i> Sự kiện
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="bi bi-person-circle"></i> Tài khoản
+                            <i class="bi bi-person-fill"></i> Tài khoản
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Đăng nhập</a></li>
@@ -71,7 +69,6 @@
                     </li>
                 </ul>
 
-                <!-- Menu ngôn ngữ bên phải -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tiếng Việt</a>
@@ -84,11 +81,12 @@
         </div>
     </nav>
 
+
     <!-- Main Content -->
     <div class="container mt-4">
         <div class="row">
             <!-- Sidebar -->
-            <aside class="col-md-3">
+            <aside class="col-sm-3">
                 <!-- Card: Về tôi -->
                 <div class="card mb-3">
                     <div class="card-header bg-primary text-white">
@@ -128,25 +126,10 @@
                 </div>
             </aside>
 
-            <!-- Main Content Area -->
-            <article class="col-md-9">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>Nội Dung Chính</h2>
-                        <p>Đây là khu vực nội dung chính của trang web. Sidebar bên trái đã được thiết kế với:</p>
-                        <ul>
-                            <li>Card "Về tôi" với avatar và giới thiệu</li>
-                            <li>Card "Chuyên mục" với List Group và badges</li>
-                        </ul>
-                        <p>Thiết kế responsive, sidebar sẽ hiển thị phía trên trên thiết bị di động.</p>
-                    </div>
-                </div>
-            </article>
+
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

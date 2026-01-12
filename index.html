@@ -1,14 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Đăng nhập/Đăng ký với Validation</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 50px;
+            background-color: #6c757d;
+        }
+
+        .demo-button {
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+
+        .modal-header {
+            border-bottom: 0;
+        }
+
+        .modal-title {
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link {
+            color: #000;
+            font-weight: 500;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .valid-feedback,
+        .invalid-feedback {
+            font-size: 0.875rem;
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+        }
+
+        .form-check-label small {
+            display: block;
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+
+        .btn-submit {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-close-modal {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .modal-footer {
+            border-top: 0;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container mt-4">
+        <button type="button" class="btn btn-primary demo-button" data-bs-toggle="modal" data-bs-target="#loginModal">
+            Đăng nhập
+        </button>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-2">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel">Đăng nhập/Đăng ký</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Nav Tabs -->
+                    <ul class="nav nav-tabs mb-4" id="loginTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-bold" id="login-tab" data-bs-toggle="tab"
+                                data-bs-target="#login" type="button" role="tab" aria-controls="login"
+                                aria-selected="true">
+                                Đăng nhập
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register"
+                                type="button" role="tab" aria-controls="register" aria-selected="false">
+                                Đăng ký
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="loginTabsContent">
+                        <!-- Tab Đăng nhập -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form id="loginForm" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="loginName" class="form-label small fw-bold">Họ và tên:</label>
+                                    <input type="text" class="form-control" id="loginName" value="Nguyen NAm" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng điền vào trường này
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label small fw-bold">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="loginPassword" value="password123"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng điền vào trường này
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label small fw-bold">Email:</label>
+                                    <input type="email" class="form-control is-valid" id="loginEmail"
+                                        value="dshjcjdshfk@gmail.com" required>
+                                    <div class="valid-feedback">
+                                        Hợp lệ
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreeTerms" checked>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        <span class="text-primary fw-bold">Đồng ý với các điều khoản</span>
+                                        <small>Tick vào hộp thoại để xác nhận</small>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-submit">Submit</button>
+                            </form>
+                        </div>
+
+                        <!-- Tab Đăng ký -->
+                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <form id="registerForm" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="registerName" class="form-label small fw-bold">Họ và tên:</label>
+                                    <input type="text" class="form-control" id="registerName" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng điền vào trường này
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label small fw-bold">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng điền vào trường này
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label small fw-bold">Email:</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                    <div class="invalid-feedback">
+                                        Vui lòng điền email hợp lệ
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="agreeTermsRegister" required>
+                                    <label class="form-check-label" for="agreeTermsRegister">
+                                        <span class="text-primary fw-bold">Đồng ý với các điều khoản</span>
+                                        <small>Tick vào hộp thoại để xác nhận</small>
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-close-modal" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Form validation
+        (function () {
+            'use strict';
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    if (form.checkValidity()) {
+                        alert('Form submitted successfully!');
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+
+        // Email validation on input
+        document.getElementById('loginEmail').addEventListener('input', function () {
+            if (this.validity.valid) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            }
+        });
+
+        document.getElementById('registerEmail').addEventListener('input', function () {
+            if (this.validity.valid) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            } else {
+                this.classList.remove('is-valid');
+                this.classList.add('is-invalid');
+            }
+        });
+
+        // Show validation on name fields
+        document.getElementById('loginName').addEventListener('input', function () {
+            if (this.value.trim() === '') {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+
+        document.getElementById('loginPassword').addEventListener('input', function () {
+            if (this.value.trim() === '') {
+                this.classList.add('is-invalid');
+                this.classList.remove('is-valid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    </script>
 </body>
 
 </html>
